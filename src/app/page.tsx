@@ -1,6 +1,5 @@
 // components
 import MainTitle from '@/components/shared/main-title/MainTitle';
-import Header from '@/components/pages/home-page/header/Header';
 import MainScreen from '@/components/pages/home-page/main-screen/MainScreen';
 
 // data
@@ -28,23 +27,18 @@ export default async function Home({ searchParams }: HomeProps) {
         mappedCars.length === 0 && Object.keys(searchParams).length === 0;
 
     return (
-        <>
-            <Header page="home" />
-            <main className="homePage">
-                <section>
-                    <MainTitle
-                        title={`Автомобили ${
-                            mappedCars[0]?.brandName || ''
-                        } в СПб`}
-                        page="home-page"
-                    />
-                    <MainScreen
-                        cars={mappedCars}
-                        noDataMessage={noDataMessage}
-                        noFiltersMessage={noFiltersMessage}
-                    />
-                </section>
-            </main>
-        </>
+        <main className="homePage">
+            <section>
+                <MainTitle
+                    title={`Автомобили ${mappedCars[0]?.brandName || ''} в СПб`}
+                    page="home-page"
+                />
+                <MainScreen
+                    cars={mappedCars}
+                    noDataMessage={noDataMessage}
+                    noFiltersMessage={noFiltersMessage}
+                />
+            </section>
+        </main>
     );
 }

@@ -9,11 +9,8 @@ import styles from './css/filterCars.module.css';
 // components
 import FilterSection from './components/filter-section/FilterSection';
 import Button from '@/components/html-tegs/button-teg/Button';
-import {
-    saveFiltersToLocalStorage,
-    resetFiltersInLocalStorage,
-} from '@/utils/filterStorage';
 
+// Данные для фильтров
 const BRAND_LIST = [
     'Chery',
     'Haval',
@@ -46,25 +43,15 @@ const FilterCars = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
 
-    // Загрузка значений из localStorage
-    const initialBrand =
-        typeof window !== 'undefined'
-            ? localStorage.getItem('brand') || ''
-            : '';
-    const initialEngineCapacity =
-        typeof window !== 'undefined'
-            ? localStorage.getItem('engineCapacity') || ''
-            : '';
-    const initialEquipment =
-        typeof window !== 'undefined'
-            ? localStorage.getItem('equipment') || ''
-            : '';
+    const [brand, setBrand] = useState(searchParams.get('brand') || '');
+    const [engineCapacity, setEngineCapacity] = useState(
+        searchParams.get('engineCapacity') || ''
+    );
+    const [equipment, setEquipment] = useState(
+        searchParams.get('equipment') || ''
+    );
 
-    const [brand, setBrand] = useState(initialBrand);
-    const [engineCapacity, setEngineCapacity] = useState(initialEngineCapacity);
-    const [equipment, setEquipment] = useState(initialEquipment);
-
-    // Применение фильтров и сохранение в Local Storage
+    // Применение фильтров и обновление URL
     useEffect(() => {
         const params = new URLSearchParams();
 
@@ -72,41 +59,33 @@ const FilterCars = () => {
         if (engineCapacity) params.set('engineCapacity', engineCapacity);
         if (equipment) params.set('equipment', equipment);
 
-        // Обновляем URL
-        router.push(`/?${params}`);
+        // Обновление URL с сохранением состояния
+        router.push(`/?${params.toString()}`);
+    }, [brand, engineCapacity, equipment, router, searchParams]);
 
-        // Сохраняем фильтры в Local Storage
-        saveFiltersToLocalStorage({ brand, engineCapacity, equipment });
-    }, [brand, engineCapacity, equipment, router]);
-
-    // Сброс фильтров
     const resetFilters = () => {
         setBrand('');
         setEngineCapacity('');
         setEquipment('');
-        resetFiltersInLocalStorage();
-        router.push('/');
     };
 
     return (
         <aside className={styles.filterContainer}>
             <FilterSection
                 setValue={setBrand}
-                selectedValue={searchParams.get('brand') || brand}
+                selectedValue={brand}
                 title="Бренд"
                 listFilter={BRAND_LIST}
             />
             <FilterSection
                 setValue={setEngineCapacity}
-                selectedValue={
-                    searchParams.get('engineCapacity') || engineCapacity
-                }
+                selectedValue={engineCapacity}
                 title="Объем двигателя"
                 listFilter={ENGINE_CAPACITY}
             />
             <FilterSection
-                selectedValue={searchParams.get('equipment') || equipment}
                 setValue={setEquipment}
+                selectedValue={equipment}
                 title="Комплектация"
                 listFilter={EQUIPMENT}
             />

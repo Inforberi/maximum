@@ -7,13 +7,13 @@ import styles from './css/carSlider.module.css';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { useState, useCallback, useEffect } from 'react';
-import Image from 'next/image';
 
 // components
 import ProgressBar from './components/progress-bar/ProgressBar';
 
 // types
 import { CurrentCarProps } from '../../../../../../types/index';
+import ImageLazyLoad from './components/image-lazy-load/ImageLazyLoad';
 
 const CarSlider = ({ car }: CurrentCarProps) => {
     const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -56,12 +56,9 @@ const CarSlider = ({ car }: CurrentCarProps) => {
                 <div className={styles.sliderContainer}>
                     {car?.photobank.imgs.map((img, index) => (
                         <div className={styles.slide} key={index}>
-                            <Image
-                                src={img.url}
+                            <ImageLazyLoad
+                                imgSrc={img.url}
                                 alt={car.feedData.modelName}
-                                width={900}
-                                height={800}
-                                quality={100}
                             />
                         </div>
                     ))}

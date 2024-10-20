@@ -15,7 +15,7 @@ import carImage from '/public/commercial/ads.png';
 const Commercial = () => {
     return (
         <section className={styles.commercialSection}>
-            <div className={`carPage ${styles.container}`}>
+            <div className={`homePage ${styles.container}`}>
                 <div>
                     <div className={styles.title}>
                         <HTeg color="white" fontSize="big" hTeg="h2">
