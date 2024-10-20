@@ -1,0 +1,50 @@
+.cardContainer {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background: var(--color-load-image);
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.carName {
+  margin-bottom: 12px;
+}
+
+.engine {
+  margin-bottom: 28px;
+}
+
+@media screen and (max-width: 1550px) {
+  .image {
+    margin-bottom: 15px;
+  }
+  .carName {
+    margin-bottom: 10px;
+  }
+  .engine {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .image {
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  .carName {
+    margin-bottom: 5px;
+  }
+  .engine {
+    margin-bottom: 20px;
+  }
+}

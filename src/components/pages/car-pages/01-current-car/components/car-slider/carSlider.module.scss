@@ -1,0 +1,68 @@
+@import '../../../../../../styles/vars';
+
+.photoSlider {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.slider {
+    overflow: hidden;
+
+    width: 100%;
+    height: auto;
+}
+
+.sliderContainer {
+    display: flex;
+    gap: 20px;
+
+    width: 100%;
+    height: 700px;
+
+    border-radius: 16px;
+}
+
+.slide {
+    position: relative;
+    flex: 0 0 auto;
+
+    max-width: 100%;
+
+    height: auto;
+
+    max-height: 100%;
+
+    background-color: var(--color-load-image);
+
+    border-radius: inherit;
+
+    &:nth-last-child(1) {
+        margin-right: 20px;
+    }
+
+    & img {
+        z-index: 1;
+        border-radius: inherit;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@include laptop {
+    .sliderContainer {
+        gap: 15px;
+        height: auto;
+    }
+    .slide {
+        &:nth-last-child(1) {
+            margin-right: 15px;
+        }
+    }
+}
+
+@include mobile {
+    .photoSlider {
+        gap: 20px;
+    }
+}

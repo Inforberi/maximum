@@ -1,0 +1,108 @@
+@import '../../../styles/vars';
+
+.base a {
+    display: block;
+    font-size: 28px;
+    line-height: 120%;
+    letter-spacing: 0.04em;
+    text-align: center;
+
+    padding: 23px 23px;
+
+    border-radius: 8px;
+}
+
+.transparent {
+    padding: 40px 0;
+
+    & a {
+        color: var(--color-primary);
+
+        border: 2px solid var(--color-primary);
+
+        @media (hover: hover) {
+            & {
+                transition: background-color 0.4s ease, color 0.4s ease,
+                    border-color 0.4s ease;
+            }
+
+            &:hover {
+                background-color: var(--color-fourthly-text);
+                color: var(--color-secondary);
+                border-color: var(--color-secondary);
+            }
+        }
+
+        @media (hover: none) {
+            & {
+                transition: background-color 0.2s ease, color 0.2s ease,
+                    border-color 0.2s ease;
+            }
+
+            &:active {
+                background-color: var(--color-fourthly-text);
+                color: var(--color-secondary);
+                border-color: var(--color-secondary);
+            }
+        }
+    }
+}
+
+.filled {
+    & a {
+        color: var(--color-tertiary-text);
+        background-color: var(--color-background-button-text);
+
+        @media (hover: hover) {
+            & {
+                transition: background-color 0.4s ease;
+            }
+            &:hover {
+                background-color: #fe0606;
+            }
+        }
+
+        @media (hover: none) {
+            & {
+                transition: background-color 0.2s ease;
+            }
+            &:active {
+                background-color: #d00000;
+            }
+        }
+    }
+}
+
+@include laptop {
+    .base a {
+        font-size: 24px;
+
+        padding: 18px 18px;
+    }
+
+    .transparent {
+        padding: 35px 0;
+
+        & a {
+            border-width: 1px;
+        }
+    }
+}
+
+@include tablet {
+    .base a {
+        font-weight: 600;
+    }
+}
+
+@include mobile {
+    .base a {
+        font-size: 17px;
+
+        padding: 17px;
+    }
+
+    .transparent {
+        padding: 35px 0;
+    }
+}

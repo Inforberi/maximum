@@ -1,0 +1,27 @@
+@import '../../../../styles/vars';
+
+.container {
+    display: grid;
+    grid-template-columns: minmax(480px, 500px) minmax(440px, 1fr);
+    gap: 60px;
+
+    width: 100%;
+
+    margin-bottom: 50px;
+}
+
+@include laptop {
+    .container {
+        grid-template-columns: minmax(400px, 450px) minmax(400px, 1fr);
+        gap: 50px;
+    }
+}
+
+@include tablet {
+    .container {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: unset;
+        gap: 15px;
+    }
+}

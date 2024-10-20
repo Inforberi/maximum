@@ -1,0 +1,38 @@
+// breakpoint
+$breakpoint-laptop: 1550px;
+$breakpoint-tablet: 980px;
+$breakpoint-mobile: 550px;
+
+// mixins
+@mixin laptop() {
+    @media screen and (max-width: $breakpoint-laptop) {
+        @content;
+    }
+}
+
+@mixin tablet() {
+    @media screen and (max-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin mobile() {
+    @media screen and (max-width: $breakpoint-mobile) {
+        @content;
+    }
+}
+
+@function pxToRem($px) {
+    $base-font-size: 19.2px;
+
+    @if $current-device == tablet {
+        $base-font-size: 10.24px;
+    } @else if $current-device == mobile {
+        $base-font-size: 5.5px;
+    } @else {
+        $base-font-size: 19.2px;
+    }
+
+    $rem-value: $px / $base-font-size;
+    @return round($rem-value * 100) / 100 * 1rem;
+}

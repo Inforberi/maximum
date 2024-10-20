@@ -1,0 +1,78 @@
+.base {
+  line-height: 140%;
+  letter-spacing: 0.05em;
+}
+
+.smallFS {
+  font-size: 16px;
+}
+
+.mediumFS {
+  font-size: 28px;
+}
+
+.largeFS {
+  font-size: 32px;
+}
+
+.boldFW {
+  font-weight: 900;
+}
+
+.blackFW {
+  font-weight: 600;
+}
+
+.mediumFW {
+  font-weight: 400;
+}
+
+.blackC {
+  color: var(--color-primary);
+}
+
+.greyC {
+  color: var(--color-fourthly-text);
+}
+
+.redC {
+  color: var(--color-background-button-text);
+}
+
+.whiteC {
+  color: var(--color-tertiary-text);
+}
+
+@media screen and (max-width: 1550px) {
+  .smallFS {
+    font-size: 16px;
+  }
+  .mediumFS {
+    font-size: 22px;
+  }
+  .largeFS {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .smallFS {
+    font-size: 16px;
+  }
+  .mediumFS {
+    font-size: 22px;
+  }
+  .largeFS {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .smallFS {
+    font-size: 14px;
+  }
+  .mediumFS {
+    font-size: 16px;
+  }
+  .largeFS {
+    font-size: 22px;
+  }
+}

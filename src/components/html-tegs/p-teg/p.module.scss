@@ -1,0 +1,95 @@
+@import '../../../styles/vars';
+
+.base {
+    line-height: 140%;
+    letter-spacing: 0.05em;
+}
+
+// font - size
+.smallFS {
+    font-size: 16px;
+}
+
+.mediumFS {
+    font-size: 28px;
+}
+
+.largeFS {
+    font-size: 32px;
+}
+
+// font - weight
+.boldFW {
+    font-weight: 900;
+}
+
+.blackFW {
+    font-weight: 600;
+}
+
+.mediumFW {
+    font-weight: 400;
+}
+
+// color
+
+.blackC {
+    color: var(--color-primary);
+}
+
+.greyC {
+    color: var(--color-fourthly-text);
+}
+
+.redC {
+    color: var(--color-background-button-text);
+}
+
+.whiteC {
+    color: var(--color-tertiary-text);
+}
+
+@include laptop {
+    // font - size
+    .smallFS {
+        font-size: 16px;
+    }
+
+    .mediumFS {
+        font-size: 22px;
+    }
+
+    .largeFS {
+        font-size: 28px;
+    }
+}
+
+@include tablet {
+    // font - size
+    .smallFS {
+        font-size: 16px;
+    }
+
+    .mediumFS {
+        font-size: 22px;
+    }
+
+    .largeFS {
+        font-size: 24px;
+    }
+}
+
+@include mobile {
+    // font - size
+    .smallFS {
+        font-size: 14px;
+    }
+
+    .mediumFS {
+        font-size: 16px;
+    }
+
+    .largeFS {
+        font-size: 22px;
+    }
+}

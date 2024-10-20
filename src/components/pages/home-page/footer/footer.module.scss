@@ -1,0 +1,21 @@
+.footer {
+    height: 150px;
+    background-color: var(--color-primary);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+
+    max-width: 1520px;
+
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
