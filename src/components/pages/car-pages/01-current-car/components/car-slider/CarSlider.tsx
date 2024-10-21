@@ -5,7 +5,6 @@ import styles from './css/carSlider.module.css';
 
 // hooks
 import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
 import { useState, useCallback, useEffect } from 'react';
 
 // components
@@ -21,16 +20,7 @@ interface Image {
 }
 
 const CarSlider = ({ car }: CurrentCarProps) => {
-    const [emblaRef, emblaApi] = useEmblaCarousel(
-        { loop: true, duration: 50 },
-        [
-            // Autoplay({
-            //     stopOnMouseEnter: true,
-            //     delay: 6000,
-            //     stopOnInteraction: false,
-            // }),
-        ]
-    );
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 50 });
     const [scrollProgress, setScrollProgress] = useState(0);
     const [images, setImages] = useState<Image[]>([]);
 
