@@ -5,7 +5,7 @@ export const getCars = async (brand: string): Promise<CarListData> => {
     try {
         const response = await fetch(
             `https://maximum.expert/api/stock-test?brand=${brand}`,
-            { next: { revalidate: 60 } }
+            { next: { revalidate: 600 } }
         );
 
         if (!response.ok) {
