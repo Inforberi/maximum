@@ -45,11 +45,6 @@ const CarSlider = ({ car }: CurrentCarProps) => {
 
         // Обновляем прогресс при первом рендере
         onScroll();
-
-        return () => {
-            emblaApi.off('scroll', onScroll);
-            emblaApi.off('reInit', onScroll);
-        };
     }, [emblaApi, onScroll]);
 
     return (
