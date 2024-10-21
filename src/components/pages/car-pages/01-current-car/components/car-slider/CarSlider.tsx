@@ -13,6 +13,7 @@ import ProgressBar from './components/progress-bar/ProgressBar';
 // types
 import { CurrentCarProps } from '../../../../../../types/index';
 import ImageLazyLoad from './components/image-lazy-load/ImageLazyLoad';
+import { EmblaCarouselType } from 'embla-carousel';
 
 interface Image {
     url: string;
@@ -30,21 +31,19 @@ const CarSlider = ({ car }: CurrentCarProps) => {
         }
     }, []);
 
-    const onScroll = useCallback(() => {
-        if (!emblaApi) return;
+    const onScroll = useCallback((emblaApi: EmblaCarouselType) => {
         const progress = Math.max(0, Math.min(1, emblaApi.scrollProgress()));
-        setScrollProgress(progress * 100); // Прогресс в процентах
-    }, [emblaApi]);
+        setScrollProgress(progress * 100);
+    }, []);
 
     useEffect(() => {
         if (!emblaApi) return;
 
-        // Устанавливаем прогресс при каждой прокрутке
-        emblaApi.on('scroll', onScroll);
-        emblaApi.on('reInit', onScroll); // Обновление прогресса при реинициализации
-
-        // Обновляем прогресс при первом рендере
-        onScroll();
+        onScroll(emblaApi);
+        emblaApi
+            .on('reInit', onScroll)
+            .on('scroll', onScroll)
+            .on('slideFocus', onScroll);
     }, [emblaApi, onScroll]);
 
     return (
