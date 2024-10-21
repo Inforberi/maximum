@@ -27,3 +27,18 @@
 .slide:nth-last-child(1) {
   margin-right: 20px;
 }
+
+@media screen and (max-width: 1550px) {
+  .sliderContainer {
+    gap: 15px;
+    height: auto;
+  }
+  .slide:nth-last-child(1) {
+    margin-right: 15px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .photoSlider {
+    gap: 20px;
+  }
+}

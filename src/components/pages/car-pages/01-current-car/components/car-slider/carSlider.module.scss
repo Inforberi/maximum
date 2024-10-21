@@ -39,21 +39,21 @@
     }
 }
 
-// @include laptop {
-//     .sliderContainer {
-//         gap: 15px;
-//         height: auto;
-//     }
+@include laptop {
+    .sliderContainer {
+        gap: 15px;
+        height: auto;
+    }
 
-//     .slide {
-//         &:nth-last-child(1) {
-//             margin-right: 15px;
-//         }
-//     }
-// }
+    .slide {
+        &:nth-last-child(1) {
+            margin-right: 15px;
+        }
+    }
+}
 
-// @include mobile {
-//     .photoSlider {
-//         gap: 20px;
-//     }
-// }
+@include mobile {
+    .photoSlider {
+        gap: 20px;
+    }
+}
