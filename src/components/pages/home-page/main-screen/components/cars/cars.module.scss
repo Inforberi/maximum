@@ -3,6 +3,7 @@
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+
     gap: 40px;
 
     width: 100%;
@@ -20,12 +21,6 @@
 @include tablet {
     .cards {
         gap: 25px;
-    }
-}
-
-@media screen and (max-width: 759px) {
-    .cards {
-        gap: 40px;
     }
 }
 
