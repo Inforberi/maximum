@@ -15,18 +15,30 @@ import ProgressBar from './components/progress-bar/ProgressBar';
 import { CurrentCarProps } from '../../../../../../types/index';
 import ImageLazyLoad from './components/image-lazy-load/ImageLazyLoad';
 
+interface Image {
+    url: string;
+    urlThumb: string;
+}
+
 const CarSlider = ({ car }: CurrentCarProps) => {
     const [emblaRef, emblaApi] = useEmblaCarousel(
         { loop: true, duration: 50 },
         [
-            Autoplay({
-                stopOnMouseEnter: true,
-                delay: 6000,
-                stopOnInteraction: false,
-            }),
+            // Autoplay({
+            //     stopOnMouseEnter: true,
+            //     delay: 6000,
+            //     stopOnInteraction: false,
+            // }),
         ]
     );
     const [scrollProgress, setScrollProgress] = useState(0);
+    const [images, setImages] = useState<Image[]>([]);
+
+    useEffect(() => {
+        if (car?.photobank.imgs) {
+            setImages(car?.photobank.imgs);
+        }
+    }, []);
 
     const onScroll = useCallback(() => {
         if (!emblaApi) return;
@@ -54,11 +66,11 @@ const CarSlider = ({ car }: CurrentCarProps) => {
         <div className={styles.photoSlider}>
             <div className={styles.slider} ref={emblaRef}>
                 <div className={styles.sliderContainer}>
-                    {car?.photobank.imgs.map((img, index) => (
+                    {images.map((img, index) => (
                         <div className={styles.slide} key={index}>
                             <ImageLazyLoad
                                 imgSrc={img.url}
-                                alt={car.feedData.modelName}
+                                alt={car?.feedData.modelName || 'Авто'}
                             />
                         </div>
                     ))}

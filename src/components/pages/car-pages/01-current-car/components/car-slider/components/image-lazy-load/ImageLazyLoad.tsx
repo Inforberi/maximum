@@ -66,17 +66,15 @@ const ImageLazyLoad = ({ imgSrc, alt }: PropType) => {
     };
 
     return (
-        <>
-            <Image
-                className={cn(styles.image, { [styles.loadImage]: hasLoaded })}
-                src={imgSrc}
-                alt={alt}
-                width={900}
-                height={800}
-                quality={75}
-                onLoad={setLoaded}
-            />
-        </>
+        <Image
+            className={cn(styles.image, { [styles.loadImage]: hasLoaded })}
+            src={imgSrc}
+            alt={alt}
+            width={900}
+            height={500}
+            quality={75}
+            onLoad={setLoaded}
+        />
     );
 };
 
