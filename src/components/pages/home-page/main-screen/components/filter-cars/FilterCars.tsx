@@ -51,7 +51,6 @@ const FilterCars = () => {
         searchParams.get('equipment') || ''
     );
 
-    // Применение фильтров и обновление URL
     useEffect(() => {
         const params = new URLSearchParams();
 
@@ -59,7 +58,6 @@ const FilterCars = () => {
         if (engineCapacity) params.set('engineCapacity', engineCapacity);
         if (equipment) params.set('equipment', equipment);
 
-        // Обновление URL с сохранением состояния
         router.push(`/?${params.toString()}`);
     }, [brand, engineCapacity, equipment, router, searchParams]);
 

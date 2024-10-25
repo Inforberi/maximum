@@ -17,7 +17,7 @@ const Car = ({ car }: { car: CarFeedData }) => {
             <div className={styles.image}>
                 <Image
                     src={car.images[0].url}
-                    width={500}
+                    width={700}
                     height={500}
                     quality={100}
                     alt={`Фото ${car.modelName}`}

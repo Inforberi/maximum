@@ -29,7 +29,7 @@ const CarSlider = ({ car }: CurrentCarProps) => {
         if (car?.photobank.imgs) {
             setImages(car?.photobank.imgs);
         }
-    }, []);
+    }, [car?.photobank.imgs]);
 
     const onScroll = useCallback((emblaApi: EmblaCarouselType) => {
         const progress = Math.max(0, Math.min(1, emblaApi.scrollProgress()));

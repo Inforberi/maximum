@@ -15,12 +15,10 @@ import { mapCars } from '@/utils/mapCars';
 export default async function Home({ searchParams }: HomeProps) {
     const data = await getCars(searchParams.brand || '');
 
-    // Фильтруем и маппим автомобили
     const mappedCars: CarFeedData[] = mapCars(
         filterCars(data.list, searchParams)
     );
 
-    // Проверяем условия для отображения сообщений
     const noDataMessage =
         mappedCars.length === 0 && Object.keys(searchParams).length > 0;
     const noFiltersMessage =
